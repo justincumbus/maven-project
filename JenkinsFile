@@ -1,12 +1,10 @@
 pipeline {
     agent any
-
     stages {
         stage('Build') {
             steps {
-                'mvn clean package'
+                sh 'mvn clean package'
             }
-        }
         post {
             success {
                 echo 'now arching...'
@@ -14,4 +12,5 @@ pipeline {
             }
         }
     }
+}
 }
